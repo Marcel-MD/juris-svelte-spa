@@ -7,12 +7,12 @@
 
 <main>
   {#await responsePromise}
-    <h>...waiting</h>
+    <h3>...waiting</h3>
   {:then response}
-    <h>{response.data}</h>
+    <h1>{response.data}</h1>
   {:catch error}
-    <h style="color: red">
+    <h3 style="color: red">
       {(error.response && error.response.data) || error.message}
-    </h>
+    </h3>
   {/await}
 </main>

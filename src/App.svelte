@@ -1,9 +1,16 @@
 <script lang="ts">
   import { Router, Link, Route } from "svelte-routing";
+  import { getCurrentUser, logout } from "./services/auth.service";
+
   import Login from "./components/Login.svelte";
   import Register from "./components/Register.svelte";
   import Home from "./components/Home.svelte";
-  import { getCurrentUser, logout } from "./services/auth.service";
+  import SearchLawyer from "./components/search/SearchLawyer.svelte";
+  import AdminAnalytics from "./components/admin/AdminAnalytics.svelte";
+  import AdminDashboard from "./components/admin/AdminDashboard.svelte";
+  import UpdateProfile from "./components/profile/UpdateProfile.svelte";
+  import Profile from "./components/profile/Profile.svelte";
+  import AppointmentDashboard from "./components/appointment/AppointmentDashboard.svelte";
 
   let user = getCurrentUser();
 </script>
@@ -28,7 +35,28 @@
           <li class="nav-item">
             <Link to="/" class="nav-link">Home</Link>
           </li>
+          <li class="nav-item">
+            <Link to="search" class="nav-link">Search Lawyer</Link>
+          </li>
           {#if user}
+            <li class="nav-item">
+              <Link to="profile/{user.id}" class="nav-link">Profile</Link>
+            </li>
+            <li class="nav-item">
+              <Link to="appointment-dashboard" class="nav-link">
+                Appointments
+              </Link>
+            </li>
+            {#if user.roles.includes("admin")}
+              <li class="nav-item">
+                <Link to="admin-dashboard" class="nav-link"
+                  >Admin Dashboard</Link
+                >
+              </li>
+              <li class="nav-item">
+                <Link to="analytics" class="nav-link">Analytics</Link>
+              </li>
+            {/if}
             <li class="nav-item">
               <Link
                 to="login"
@@ -56,8 +84,16 @@
 
   <div>
     <Route path="/"><Home /></Route>
+    <Route path="search"><SearchLawyer /></Route>
     <Route path="login"><Login /></Route>
     <Route path="register"><Register /></Route>
+    <Route path="profile/:id" let:params><Profile id={params.id} /></Route>
+    <Route path="update-profile/:id" let:params
+      ><Register /><UpdateProfile id={params.id} /></Route
+    >
+    <Route path="appointment-dashboard"><AppointmentDashboard /></Route>
+    <Route path="admin-dashboard"><AdminDashboard /></Route>
+    <Route path="analytics"><AdminAnalytics /></Route>
   </div>
 </Router>
 <footer>
