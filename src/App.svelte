@@ -16,9 +16,9 @@
 </script>
 
 <Router>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <Link to="/"><div class="navbar-brand">Juris.md</div></Link>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar" style="background-color : transparent" >
+    <div class="container">
+      <Link to="/"><div class="navbar-brand"><img src="./logo-pbl2.2.w.png" width="47" height="47" alt="logo"/></div></Link>
       <button
         class="navbar-toggler"
         type="button"
@@ -80,7 +80,7 @@
     </div>
   </nav>
 
-  <div style="margin-top: 4em;" />
+  <div style="margin-top: 3em;"/>
 
   <div>
     <Route path="/"><Home /></Route>
@@ -101,9 +101,19 @@
 </footer>
 
 <style>
+  .navbar-nav {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: 'Roboto';
+}
   footer {
     display: flex;
     justify-content: center;
+    font-family: 'Roboto';
     margin: 3em;
   }
 </style>
