@@ -3,11 +3,11 @@
 
 <main>
   <div class="search-section">
-    <h2 class="search-title">Find the right lawyer for you!</h2>
-    <div class="search-line">
+    <center><img src="./logo-pbl2.1.w.png" alt="logo" width="240" height="300" style = "padding-top:70px" /></center>
+    <div class="search-line" style = "padding-top:150px" >
       <div class="dropdown">
         <button
-          class="btn btn-light dropdown-toggle type-button"
+          class="btn btn-light dropdown-toggle type-button rounded-left"
           type="button"
           id="dropdownMenuButton1"
           data-bs-toggle="dropdown"
@@ -16,13 +16,13 @@
           Type
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><div class="dropdown-item" value="Lawyer">Lawyer</div></li>
-          <li><div class="dropdown-item" value="Notary">Notary</div></li>
+          <li><div class="dropdown-item" style="color:#fffbfa" rounded-top  value="Lawyer">Lawyer</div></li>
+          <li><div class="dropdown-item" style="color:#fffbfa" rounded-top  value="Notary">Notary</div></li>
         </ul>
       </div>
       <div class="dropdown">
         <button
-          class="btn btn-light dropdown-toggle city-button"
+          class="btn btn-light dropdown-toggle city-button rounded-left"
           type="button"
           id="dropdownMenuButton2"
           data-bs-toggle="dropdown"
@@ -30,18 +30,17 @@
         >
           City
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-          <li><div class="dropdown-item" value="Chisinau">Chisinau</div></li>
-          <li><div class="dropdown-item" value="Balti">Balti</div></li>
-          <li><div class="dropdown-item" value="Cahul">Cahul</div></li>
+        <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton2">
+          <li><div class="dropdown-item" style="color:#fffbfa" rounded-top value="Chișinău">Chișinău</div></li>
+          <li><div class="dropdown-item" style="color:#fffbfa" rounded-top value="Bălți">Bălți</div></li>
+          <li><div class="dropdown-item" style="color:#fffbfa" rounded-top value="Cahul">Cahul</div></li>
         </ul>
       </div>
-      <button type="button" class="btn btn-primary search-button">Search</button
+      <button type="button" class="btn btn-lg btn-outline-light search-button rounded-right">Search</button
       >
     </div>
   </div>
   <div class="about-section">
-    <img src="./juris.png" alt="" width="150" height="150" />
     <h2 class="about-title">About Us</h2>
     <p class="about-text">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -56,16 +55,14 @@
 </main>
 
 <style>
-  .search-title {
-    padding-top: 2em;
-    padding-bottom: 1em;
-    color: white;
-    text-align: center;
-  }
   .search-section {
-    background-color: rgb(71, 77, 83);
-    height: 18em;
-    margin: -1em -0.5em 1em;
+    background-image : url('/grunge-cracked-wall.jpg');
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin: -1em -0.5em 3em;
   }
   .search-line {
     display: flex;
@@ -74,20 +71,33 @@
   .type-button {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    width: 30vw;
+    width: 200px;
+    height: 50px;
     max-width: 300px;
     text-align: left;
+    font-family: 'Roboto';
+    background-color: #fffbfa;
   }
   .city-button {
     border-radius: 0;
-    width: 30vw;
+    width: 200px;
+    height: 50px;
     max-width: 300px;
     text-align: left;
+    font-family: 'Roboto';
+    background-color: #fffbfa;
   }
   .search-button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    width: 5rem;
+    width: 10rem;
+    height: 50px;
+    background-color: transparent;
+    font-family: 'Roboto';
+  }
+  .dropdown-menu{
+    background-color: #1b65a6;
+    font-family: 'Roboto'; 
   }
   .about-section {
     display: flex;
