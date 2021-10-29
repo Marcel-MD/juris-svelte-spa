@@ -101,4 +101,9 @@
 </footer>
 
 <style>
+  footer {
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+  }
 </style>
