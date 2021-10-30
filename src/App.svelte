@@ -16,9 +16,15 @@
 </script>
 
 <Router>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar" style="background-color : transparent" >
+  <nav
+    class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar"
+  >
     <div class="container">
-      <Link to="/"><div class="navbar-brand"><img src="./logo-pbl2.2.w.png" width="47" height="47" alt="logo"/></div></Link>
+      <Link to="/"
+        ><div class="navbar-brand">
+          <img src="./logo-pbl2.2.w.png" width="47" height="47" alt="logo" />
+        </div></Link
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -80,7 +86,7 @@
     </div>
   </nav>
 
-  <div style="margin-top: 3em;"/>
+  <div style="margin-top: 5em;" />
 
   <div>
     <Route path="/"><Home /></Route>
@@ -102,18 +108,16 @@
 
 <style>
   .navbar-nav {
-  float: left;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 18px;
-  font-family: 'Roboto';
-}
+    float: left;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: "Roboto";
+  }
   footer {
     display: flex;
     justify-content: center;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     margin: 3em;
   }
 </style>
