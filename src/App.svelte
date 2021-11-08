@@ -90,7 +90,10 @@
 
   <div>
     <Route path="/"><Home /></Route>
-    <Route path="search"><SearchLawyer /></Route>
+    <Route path="/search"><SearchLawyer /></Route>
+    <Route path="search/:type/:location" let:params
+      ><SearchLawyer type={params.type} location={params.location} /></Route
+    >
     <Route path="login"><Login /></Route>
     <Route path="register"><Register /></Route>
     <Route path="profile/:id" let:params><Profile id={params.id} /></Route>

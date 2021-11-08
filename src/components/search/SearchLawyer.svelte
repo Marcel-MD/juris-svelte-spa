@@ -1,4 +1,8 @@
 <script>
+  export let type = "All";
+  export let location = "All";
+
+  console.log(type, location);
 </script>
 
 <main>

@@ -1,4 +1,11 @@
 <script>
+  import { navigate } from "svelte-routing";
+  let location;
+  let type;
+
+  function search() {
+    navigate("/search/" + type + "/" + location);
+  }
 </script>
 
 <main>
@@ -13,50 +20,19 @@
       /></center
     >
     <div class="search-line" style="padding-top:150px">
-      <div class="dropdown">
-        <button
-          class="btn btn-light dropdown-toggle type-button rounded-left"
-          type="button"
-          id="dropdownMenuButton1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Type
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <div class="dropdown-item" rounded-top value="Lawyer">Lawyer</div>
-          </li>
-          <li>
-            <div class="dropdown-item" rounded-top value="Notary">Notary</div>
-          </li>
-        </ul>
-      </div>
-      <div class="dropdown">
-        <button
-          class="btn btn-light dropdown-toggle city-button rounded-left"
-          type="button"
-          id="dropdownMenuButton2"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          City
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-          <li>
-            <div class="dropdown-item" rounded-top value="Chișinău">
-              Chișinău
-            </div>
-          </li>
-          <li>
-            <div class="dropdown-item" rounded-top value="Bălți">Bălți</div>
-          </li>
-          <li>
-            <div class="dropdown-item" rounded-top value="Cahul">Cahul</div>
-          </li>
-        </ul>
-      </div>
+      <select bind:value={type} class="form-select type-button">
+        <option value="Lawyer">Lawyer</option>
+        <option value="Notary">Notary</option>
+        <option value="All">All</option>
+      </select>
+      <select bind:value={location} class="form-select city-button">
+        <option value="Chisinau">Chisinau</option>
+        <option value="Balti">Balti</option>
+        <option value="Cahul">Cahul</option>
+        <option value="Cahul">All</option>
+      </select>
       <button
+        on:click={search}
         type="button"
         class="btn btn-lg btn-outline-light search-button rounded-right"
         >Search</button
@@ -119,10 +95,6 @@
     font-family: "Roboto";
   }
   .search-button:hover {
-    background-color: #1b65a6;
-    color: white;
-  }
-  .dropdown-item:hover {
     background-color: #1b65a6;
     color: white;
   }
