@@ -29,7 +29,7 @@
         <option value="Chisinau">Chisinau</option>
         <option value="Balti">Balti</option>
         <option value="Cahul">Cahul</option>
-        <option value="Cahul">All</option>
+        <option value="All">All</option>
       </select>
       <button
         on:click={search}
@@ -75,7 +75,6 @@
     max-width: 300px;
     text-align: left;
     font-family: "Roboto";
-    background-color: #fffbfa;
   }
   .city-button {
     border-radius: 0;
@@ -84,7 +83,6 @@
     max-width: 300px;
     text-align: left;
     font-family: "Roboto";
-    background-color: #fffbfa;
   }
   .search-button {
     border-top-left-radius: 0;
