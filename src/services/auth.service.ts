@@ -1,9 +1,10 @@
 import axios from "axios";
+import { API_URL } from "./api.url";
 
-const API_URL = "http://localhost:8080/auth/";
+let url = API_URL + "/auth/";
 
 export async function login(email: string, password: string) {
-  return await axios.post(API_URL + "login", {
+  return await axios.post(url + "login", {
     email,
     password,
   });
