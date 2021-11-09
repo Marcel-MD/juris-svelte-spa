@@ -1,4 +1,5 @@
 <script>
+  import Lawyer from "./Lawyer.svelte";
   export let type = "All";
   export let location = "All";
   let sort = "High Rating";
@@ -35,6 +36,7 @@
       class="btn btn-lg btn-dark search-button rounded-right">Search</button
     >
   </div>
+  <Lawyer />
 </main>
 
 <style>
