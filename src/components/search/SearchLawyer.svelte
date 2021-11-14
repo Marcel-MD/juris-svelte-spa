@@ -1,34 +1,95 @@
 <script>
   import Lawyer from "./Lawyer.svelte";
-  export let type = "All";
-  export let location = "All";
-  let sort = "High Rating";
+  import { getProfiles } from "../../services/profile.service";
+  import { getTypes, getSectors } from "../../services/enum.service";
 
-  console.log(type, location);
+  export let type = "";
+  export let location = "";
+  let page = 1;
+  let rating = "";
+  let price = "";
+
+  let profileList = [];
+  let locationList = [];
+  let typeList = [];
+  let errorMessage;
+
+  getTypes().then(
+    (response) => {
+      typeList = Object.values(response.data);
+    },
+    (error) => {
+      errorMessage = error.message || error.toString();
+    }
+  );
+
+  getSectors().then(
+    (response) => {
+      locationList = Object.values(response.data);
+    },
+    (error) => {
+      errorMessage = error.message || error.toString();
+    }
+  );
+
   function search() {
-    console.log("Search", type, location, sort);
+    getProfiles(page, type, location, price, rating).then(
+      (response) => {
+        profileList = response.data.data;
+      },
+      (error) => {
+        errorMessage = error.message || error.toString();
+      }
+    );
+  }
+
+  search();
+
+  let sort = "no sort";
+  function handleSortOption() {
+    console.log(sort);
+    let words = sort.split(" ");
+
+    switch (words[0]) {
+      case "price":
+        price = words[1];
+        rating = "";
+        break;
+      case "rating":
+        rating = words[1];
+        price = "";
+        break;
+      default:
+        price = "";
+        rating = "";
+    }
   }
 </script>
 
 <main>
-  <div class="search-line" style="padding-top:50px">
+  <div class="search-line" style="padding-top:2em">
     <select bind:value={type} class="form-select type-button">
-      <option value="Lawyer">Lawyer</option>
-      <option value="Notary">Notary</option>
-      <option value="All">All</option>
+      <option value="">Any</option>
+      {#each typeList as type}
+        <option value={type}>{type}</option>
+      {/each}
     </select>
     <select bind:value={location} class="form-select city-button">
-      <option value="Chisinau">Chisinau</option>
-      <option value="Balti">Balti</option>
-      <option value="Cahul">Cahul</option>
-      <option value="All">All</option>
+      <option value="">Any</option>
+      {#each locationList as location}
+        <option value={location}>{location}</option>
+      {/each}
     </select>
-    <select bind:value={sort} class="form-select city-button">
-      <option value="Cheap">Cheap</option>
-      <option value="Expensive">Expensive</option>
-      <option value="High Rating">High Rating</option>
-      <option value="Low Rating">Low Rating</option>
-      <option value="All">All</option>
+    <select
+      bind:value={sort}
+      on:change={handleSortOption}
+      class="form-select city-button"
+    >
+      <option value="price ASC">Price Asc</option>
+      <option value="price DESC">Price Desc</option>
+      <option value="rating ASC">Rating Asc</option>
+      <option value="rating DESC">Rating Desc</option>
+      <option value="no sort">-</option>
     </select>
     <button
       on:click={search}
@@ -36,7 +97,18 @@
       class="btn btn-lg btn-dark search-button rounded-right">Search</button
     >
   </div>
-  <Lawyer />
+
+  {#if errorMessage}
+    <div class="alert alert-danger" role="alert">
+      {errorMessage}
+    </div>
+  {/if}
+
+  <div class="profileList">
+    {#each profileList as profile}
+      <Lawyer {...profile} />
+    {/each}
+  </div>
 </main>
 
 <style>
@@ -71,5 +143,14 @@
   .search-button:hover {
     background-color: #1b65a6;
     color: white;
+  }
+  .alert {
+    max-width: 600px;
+    margin: 1em auto;
+  }
+  .profileList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

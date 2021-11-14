@@ -13,6 +13,8 @@
   import AppointmentDashboard from "./components/appointment/AppointmentDashboard.svelte";
 
   let user = getCurrentUser();
+  let location = "";
+  let type = "";
 </script>
 
 <Router>
@@ -90,10 +92,7 @@
 
   <div>
     <Route path="/"><Home /></Route>
-    <Route path="/search"><SearchLawyer /></Route>
-    <Route path="search/:type/:location" let:params
-      ><SearchLawyer type={params.type} location={params.location} /></Route
-    >
+    <Route path="search"><SearchLawyer {location} {type} /></Route>
     <Route path="login"><Login /></Route>
     <Route path="register"><Register /></Route>
     <Route path="profile/:id" let:params><Profile id={params.id} /></Route>

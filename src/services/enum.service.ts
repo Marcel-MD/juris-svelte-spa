@@ -3,11 +3,6 @@ import { API_URL } from "./api.url";
 
 let url = API_URL + "/profiles/";
 
-export enum Sort {
-  ASC = "ASC",
-  DESC = "DESC",
-}
-
 export async function getTypes() {
   return await axios.get(url + "types");
 }

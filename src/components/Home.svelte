@@ -1,10 +1,33 @@
 <script>
   import { navigate } from "svelte-routing";
-  let location;
-  let type;
+  import { getTypes, getSectors } from "../services/enum.service";
+
+  let location = "";
+  let type = "";
+  let locationList = [];
+  let typeList = [];
+  let errorMessage;
+
+  getTypes().then(
+    (response) => {
+      typeList = Object.values(response.data);
+    },
+    (error) => {
+      errorMessage = error.message || error.toString();
+    }
+  );
+
+  getSectors().then(
+    (response) => {
+      locationList = Object.values(response.data);
+    },
+    (error) => {
+      errorMessage = error.message || error.toString();
+    }
+  );
 
   function search() {
-    navigate("/search/" + type + "/" + location);
+    navigate("/search");
   }
 </script>
 
@@ -21,15 +44,16 @@
     >
     <div class="search-line" style="padding-top:150px">
       <select bind:value={type} class="form-select type-button">
-        <option value="Lawyer">Lawyer</option>
-        <option value="Notary">Notary</option>
-        <option value="All">All</option>
+        <option value="">Any</option>
+        {#each typeList as type}
+          <option value={type}>{type}</option>
+        {/each}
       </select>
       <select bind:value={location} class="form-select city-button">
-        <option value="Chisinau">Chisinau</option>
-        <option value="Balti">Balti</option>
-        <option value="Cahul">Cahul</option>
-        <option value="All">All</option>
+        <option value="">Any</option>
+        {#each locationList as location}
+          <option value={location}>{location}</option>
+        {/each}
       </select>
       <button
         on:click={search}
@@ -38,6 +62,11 @@
         >Search</button
       >
     </div>
+    {#if errorMessage}
+      <div class="alert alert-danger" role="alert">
+        {errorMessage}
+      </div>
+    {/if}
   </div>
   <div class="about-section">
     <h2 class="about-title">About Us</h2>
@@ -96,6 +125,11 @@
     background-color: #1b65a6;
     color: white;
   }
+  .alert {
+    max-width: 600px;
+    margin: 1em auto;
+  }
+
   .about-section {
     display: flex;
     flex-direction: column;
