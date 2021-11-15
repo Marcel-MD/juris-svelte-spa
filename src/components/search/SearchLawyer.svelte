@@ -6,6 +6,7 @@
   export let type = "";
   export let location = "";
   let page = 1;
+  let pageLimit = 1;
   let rating = "";
   let price = "";
 
@@ -36,6 +37,7 @@
     getProfiles(page, type, location, price, rating).then(
       (response) => {
         profileList = response.data.data;
+        pageLimit = response.data.limit;
       },
       (error) => {
         errorMessage = error.message || error.toString();
@@ -47,7 +49,6 @@
 
   let sort = "no sort";
   function handleSortOption() {
-    console.log(sort);
     let words = sort.split(" ");
 
     switch (words[0]) {
@@ -63,6 +64,29 @@
         price = "";
         rating = "";
     }
+  }
+
+  function nextPage() {
+    if (page + 1 > pageLimit) {
+      return;
+    }
+
+    page = page + 1;
+    search();
+  }
+
+  function previousPage() {
+    if (page - 1 < 1) {
+      return;
+    }
+
+    page = page - 1;
+    search();
+  }
+
+  function goToPage(pageNumber) {
+    page = pageNumber;
+    search();
   }
 </script>
 
@@ -108,6 +132,27 @@
     {#each profileList as profile}
       <Lawyer {...profile} />
     {/each}
+
+    <ul class="pagination">
+      <li class="page-item" on:click={previousPage}>
+        <div class="page-link" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </div>
+      </li>
+      {#each Array(pageLimit) as _, i}
+        <li
+          class="page-item{page == i + 1 ? ' active' : ''}"
+          on:click={() => goToPage(i + 1)}
+        >
+          <div class="page-link">{i + 1}</div>
+        </li>
+      {/each}
+      <li class="page-item" on:click={nextPage}>
+        <div class="page-link" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </div>
+      </li>
+    </ul>
   </div>
 </main>
 
@@ -152,5 +197,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .page-link {
+    cursor: pointer;
   }
 </style>
