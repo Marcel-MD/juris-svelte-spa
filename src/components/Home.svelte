@@ -1,5 +1,6 @@
 <script>
   import { navigate } from "svelte-routing";
+  import { createEventDispatcher } from "svelte";
   import { getTypes, getSectors } from "../services/enum.service";
 
   let location = "";
@@ -26,7 +27,13 @@
     }
   );
 
+  const dispatch = createEventDispatcher();
+
   function search() {
+    dispatch("message", {
+      location: location,
+      type: type,
+    });
     navigate("/search");
   }
 </script>

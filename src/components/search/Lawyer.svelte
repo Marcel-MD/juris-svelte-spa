@@ -57,7 +57,12 @@
   }
   .card-container {
     flex-direction: row;
+    cursor: pointer;
   }
+  .card-container:hover {
+    box-shadow: 0 0 5px;
+  }
+
   @media only screen and (max-width: 600px) {
     img {
       height: 300px;

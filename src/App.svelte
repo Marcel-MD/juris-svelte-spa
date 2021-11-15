@@ -15,6 +15,11 @@
   let user = getCurrentUser();
   let location = "";
   let type = "";
+
+  function handleMessage(event) {
+    location = event.detail.location;
+    type = event.detail.type;
+  }
 </script>
 
 <Router>
@@ -91,7 +96,7 @@
   <div style="margin-top: 5em;" />
 
   <div>
-    <Route path="/"><Home /></Route>
+    <Route path="/"><Home on:message={handleMessage} /></Route>
     <Route path="search"><SearchLawyer {location} {type} /></Route>
     <Route path="login"><Login /></Route>
     <Route path="register"><Register /></Route>
