@@ -49,7 +49,7 @@
             <Link to="/" class="nav-link">Home</Link>
           </li>
           <li class="nav-item">
-            <Link to="search" class="nav-link">Search Lawyer</Link>
+            <Link to="search" class="nav-link">Search</Link>
           </li>
           {#if user}
             <li class="nav-item">
@@ -62,9 +62,7 @@
             </li>
             {#if user.roles.includes("admin")}
               <li class="nav-item">
-                <Link to="admin-dashboard" class="nav-link"
-                  >Admin Dashboard</Link
-                >
+                <Link to="admin-dashboard" class="nav-link">Dashboard</Link>
               </li>
               <li class="nav-item">
                 <Link to="analytics" class="nav-link">Analytics</Link>

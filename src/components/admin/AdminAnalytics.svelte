@@ -2,7 +2,7 @@
 </script>
 
 <main>
-  <h1>Admin Analytics</h1>
+  <h2>Coming Soon...</h2>
 </main>
 
 <style>

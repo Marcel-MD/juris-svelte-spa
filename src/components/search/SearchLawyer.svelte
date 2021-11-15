@@ -6,7 +6,7 @@
   export let type = "";
   export let location = "";
   let page = 1;
-  let pageLimit = 1;
+  let nrOfPages = 1;
   let rating = "";
   let price = "";
 
@@ -37,7 +37,7 @@
     getProfiles(page, type, location, price, rating).then(
       (response) => {
         profileList = response.data.data;
-        pageLimit = response.data.limit;
+        nrOfPages = Math.ceil(response.data.total / 2);
       },
       (error) => {
         errorMessage = error.message || error.toString();
@@ -67,7 +67,7 @@
   }
 
   function nextPage() {
-    if (page + 1 > pageLimit) {
+    if (page + 1 > nrOfPages) {
       return;
     }
 
@@ -139,7 +139,7 @@
           <span aria-hidden="true">&laquo;</span>
         </div>
       </li>
-      {#each Array(pageLimit) as _, i}
+      {#each Array(nrOfPages) as _, i}
         <li
           class="page-item{page == i + 1 ? ' active' : ''}"
           on:click={() => goToPage(i + 1)}
