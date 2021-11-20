@@ -9,9 +9,13 @@ export async function getUnverifiedProfiles() {
 }
 
 export async function verifieProfile(id: number | string) {
-  return await axios.put(url + "verifie/" + id, { headers: authHeader() });
+  return await axios.put(url + "verifie/" + id, {}, { headers: authHeader() });
 }
 
 export async function unverifieProfile(id: number | string) {
-  return await axios.put(url + "unverifie/" + id, { headers: authHeader() });
+  return await axios.put(
+    url + "unverifie/" + id,
+    {},
+    { headers: authHeader() }
+  );
 }

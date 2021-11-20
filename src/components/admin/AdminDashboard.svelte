@@ -1,5 +1,6 @@
 <script>
   import { getUnverifiedProfiles } from "../../services/admin.service";
+  import { catchError } from "../../services/error.service";
   import Lawyer from "../search/Lawyer.svelte";
 
   let errorMessage = "";
@@ -10,7 +11,7 @@
       profileList = response.data;
     },
     (error) => {
-      errorMessage = error.message || error.toString();
+      errorMessage = catchError(error);
     }
   );
 </script>

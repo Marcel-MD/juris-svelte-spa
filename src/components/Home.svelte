@@ -1,6 +1,7 @@
 <script>
   import { navigate } from "svelte-routing";
   import { createEventDispatcher } from "svelte";
+  import { catchError } from "../services/error.service";
   import { getTypes, getSectors } from "../services/enum.service";
 
   let location = "";
@@ -14,7 +15,7 @@
       typeList = Object.values(response.data);
     },
     (error) => {
-      errorMessage = error.message || error.toString();
+      errorMessage = catchError(error);
     }
   );
 
@@ -23,7 +24,7 @@
       locationList = Object.values(response.data);
     },
     (error) => {
-      errorMessage = error.message || error.toString();
+      errorMessage = catchError(error);
     }
   );
 

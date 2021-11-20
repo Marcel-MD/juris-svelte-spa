@@ -1,5 +1,7 @@
 <script>
   import { login } from "../services/auth.service";
+  import { catchError } from "../services/error.service";
+
   let password = "";
   let email = "";
   let errorMessages = [];
@@ -16,8 +18,7 @@
         }
       },
       (error) => {
-        errorMessages =
-          error.response.data.message || error.message || error.toString();
+        errorMessages = catchError(error);
         loading = "";
       }
     );

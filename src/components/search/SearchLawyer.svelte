@@ -1,5 +1,6 @@
 <script>
   import Lawyer from "./Lawyer.svelte";
+  import { catchError } from "../../services/error.service";
   import { getProfiles } from "../../services/profile.service";
   import { getTypes, getSectors } from "../../services/enum.service";
 
@@ -20,7 +21,7 @@
       typeList = Object.values(response.data);
     },
     (error) => {
-      errorMessage = error.message || error.toString();
+      errorMessage = catchError(error);
     }
   );
 
@@ -29,7 +30,7 @@
       locationList = Object.values(response.data);
     },
     (error) => {
-      errorMessage = error.message || error.toString();
+      errorMessage = catchError(error);
     }
   );
 
@@ -40,7 +41,7 @@
         nrOfPages = Math.ceil(response.data.total / 2);
       },
       (error) => {
-        errorMessage = error.message || error.toString();
+        errorMessage = catchError(error);
       }
     );
   }

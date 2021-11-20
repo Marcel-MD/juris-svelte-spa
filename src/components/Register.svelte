@@ -1,5 +1,6 @@
 <script>
   import { createUser } from "../services/user.service";
+  import { catchError } from "../services/error.service";
 
   let email = "";
   let password = "";
@@ -21,8 +22,7 @@
         window.location.href = "/login";
       },
       (error) => {
-        errorMessages =
-          error.response.data.message || error.message || error.toString();
+        errorMessages = catchError(error);
         loading = "";
       }
     );
