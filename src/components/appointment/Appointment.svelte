@@ -1,6 +1,4 @@
 <script>
-  import { toggle_class } from "svelte/internal";
-
   import {
     acceptAppointment,
     deleteAppointment,

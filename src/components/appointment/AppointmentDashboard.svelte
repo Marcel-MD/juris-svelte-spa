@@ -1,5 +1,4 @@
 <script>
-  import CreateAppointment from "./CreateAppointment.svelte";
   import Appointment from "./Appointment.svelte";
   import { getAppointments } from "../../services/appointment.service";
   import { catchError } from "../../services/error.service";

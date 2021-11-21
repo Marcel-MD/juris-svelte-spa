@@ -1,5 +1,5 @@
 <script>
-  import { createAppointment } from "../../services/appointment.service";
+  import { createReview } from "../../services/review.service";
   import { catchError } from "../../services/error.service";
 
   export let userId;
@@ -8,18 +8,20 @@
   let lastName = "";
   let phoneNumber = "";
   let description = "";
+  let rating = 10;
 
   let isVisible = false;
   let errorMessage = "";
   let successMessage = "";
 
-  function appointment() {
-    createAppointment(
+  function review() {
+    createReview(
       email,
       firstName,
       lastName,
       phoneNumber,
       description,
+      rating,
       userId
     ).then(
       (response) => {
@@ -37,12 +39,12 @@
 <main>
   {#if !isVisible}
     <button class="btn btn-primary" on:click={() => (isVisible = true)}
-      >Make Appointment</button
+      >Make Review</button
     >
   {:else if isVisible}
     <div class="card">
       <div class="card-body">
-        <form class="row g-3" on:submit|preventDefault={appointment}>
+        <form class="row g-3" on:submit|preventDefault={review}>
           <div class="col-md-6">
             <label for="validationDefault01" class="form-label"
               >First name</label
@@ -103,18 +105,18 @@
             />
           </div>
           <div class="col-12">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="invalidCheck2"
-                required
-              />
-              <label class="form-check-label" for="invalidCheck2">
-                Agree to terms and conditions
-              </label>
-            </div>
+            <label for="customRange3" class="form-label"
+              >Rating <strong>{rating}</strong></label
+            >
+            <input
+              bind:value={rating}
+              type="range"
+              class="form-range"
+              min="0"
+              max="10"
+              step="1"
+              id="customRange3"
+            />
           </div>
           {#if successMessage}
             <div class="alert alert-success" role="alert">
@@ -122,9 +124,7 @@
             </div>
           {:else}
             <div class="col-12">
-              <button class="btn btn-primary" type="submit">
-                Make Appointment
-              </button>
+              <button class="btn btn-primary" type="submit">Make Review</button>
             </div>
           {/if}
         </form>
