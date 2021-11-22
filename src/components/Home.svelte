@@ -43,7 +43,7 @@
   <div class="search-section">
     <center
       ><img
-        src="./logo-pbl2.1.w.png"
+        src="/logo-pbl2.1.w.png"
         alt="logo"
         width="240"
         height="240"

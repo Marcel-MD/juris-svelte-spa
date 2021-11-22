@@ -4,6 +4,7 @@
     deleteAppointment,
   } from "../../services/appointment.service";
   import { catchError } from "../../services/error.service";
+  import { formatDate } from "../../services/date.service";
 
   export let id;
   export let firstName;
@@ -64,7 +65,7 @@
       {/if}
     </div>
     <div class="card-footer border-{theme}">
-      {creationDate}
+      {formatDate(creationDate)}
     </div>
   </div>
 </main>

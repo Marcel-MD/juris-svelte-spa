@@ -25,3 +25,40 @@ export async function getProfiles(
       loc
   );
 }
+
+export async function getProfileById(id: number | string) {
+  return await axios.get(url + id);
+}
+
+export async function deleteProfileAndUser(id: number | string) {
+  return await axios.delete(url + id, { headers: authHeader() });
+}
+
+export async function updateProfile(
+  id: number | string,
+  firstName: string,
+  lastName: string,
+  profilePicture: string,
+  type: string,
+  description: string,
+  price: string,
+  phoneNumber: string,
+  sector: string,
+  address: string
+) {
+  return await axios.patch(
+    url + id,
+    {
+      firstName,
+      lastName,
+      profilePicture,
+      type,
+      description,
+      price,
+      phoneNumber,
+      sector,
+      address,
+    },
+    { headers: authHeader() }
+  );
+}

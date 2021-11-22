@@ -2,6 +2,7 @@
   import { deleteReview } from "../../services/review.service";
   import { catchError } from "../../services/error.service";
   import { getCurrentUser } from "../../services/auth.service";
+  import { formatDate } from "../../services/date.service";
 
   export let id;
   export let firstName;
@@ -28,7 +29,7 @@
 </script>
 
 <main>
-  <div class="card border-{theme} mb-3" style="max-width: 18rem;">
+  <div class="card border-{theme} mb-3" style="width: 16rem">
     <div class="card-header border-{theme}">
       {firstName + " " + lastName}
     </div>
@@ -47,7 +48,7 @@
       {/if}
     </div>
     <div class="card-footer border-{theme}">
-      {creationDate}
+      {formatDate(creationDate)}
     </div>
   </div>
 </main>

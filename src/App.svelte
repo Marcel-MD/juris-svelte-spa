@@ -29,7 +29,7 @@
     <div class="container">
       <Link to="/"
         ><div class="navbar-brand">
-          <img src="./logo-pbl2.2.w.png" width="47" height="47" alt="logo" />
+          <img src="/logo-pbl2.2.w.png" width="47" height="47" alt="logo" />
         </div></Link
       >
       <button
@@ -99,9 +99,9 @@
     <Route path="login"><Login /></Route>
     <Route path="register"><Register /></Route>
     <Route path="profile/:id" let:params><Profile id={params.id} /></Route>
-    <Route path="update-profile/:id" let:params
-      ><Register /><UpdateProfile id={params.id} /></Route
-    >
+    <Route path="update-profile/:id" let:params>
+      <UpdateProfile id={params.id} />
+    </Route>
     <Route path="appointment-dashboard"><AppointmentDashboard /></Route>
     <Route path="admin-dashboard"><AdminDashboard /></Route>
     <Route path="analytics"><AdminAnalytics /></Route>
