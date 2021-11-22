@@ -81,6 +81,9 @@
         <button type="button" class="btn btn-primary" on:click={handleEdit}
           >Edit Profile</button
         >
+        <button type="button" class="btn btn-danger" on:click={handleDelete}
+          >Delete User</button
+        >
       {/if}
 
       {#if user && user.roles.includes("admin")}
@@ -95,9 +98,6 @@
             >Verifie Profile</button
           >
         {/if}
-        <button type="button" class="btn btn-danger" on:click={handleDelete}
-          >Delete User</button
-        >
       {/if}
     </div>
 

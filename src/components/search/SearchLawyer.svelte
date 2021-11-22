@@ -38,7 +38,7 @@
     getProfiles(page, type, location, price, rating).then(
       (response) => {
         profileList = response.data.data;
-        nrOfPages = Math.ceil(response.data.total / 2);
+        nrOfPages = Math.ceil(response.data.total / 4);
       },
       (error) => {
         errorMessage = catchError(error);
