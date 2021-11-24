@@ -18,7 +18,12 @@
 
 <main>
   <div class="card card-container" on:click={goToProfile}>
-    <img src={profilePicture || "/sample-profile.png"} alt="profile" />
+    <img
+      src={profilePicture || "/sample-profile.png"}
+      alt="profile"
+      width="240"
+      height="240"
+    />
     <div class="card-body">
       <div class="row">
         <div class="col">

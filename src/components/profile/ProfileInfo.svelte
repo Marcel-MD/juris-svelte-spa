@@ -69,7 +69,12 @@
 <main>
   <div class="profile-info row">
     <div class="col-md">
-      <img src={profilePicture || "/sample-profile.png"} alt="profile" />
+      <img
+        src={profilePicture || "/sample-profile.png"}
+        alt="profile"
+        width="240"
+        height="240"
+      />
       {#if verified}
         <div class="alert alert-success" role="alert">Verified Profile!</div>
       {:else}
