@@ -4,15 +4,11 @@
     updateProfile,
   } from "../../services/profile.service";
   import { getTypes, getSectors } from "../../services/enum.service";
-  import {
-    addEducation,
-    deleteEducation,
-    addExperience,
-    deleteExperience,
-  } from "../../services/edu.exp.service";
   import { catchError } from "../../services/error.service";
   import { getCurrentUser } from "../../services/auth.service";
   import { navigate } from "svelte-routing";
+  import UpdateEducation from "./UpdateEducation.svelte";
+  import UpdateExperience from "./UpdateExperience.svelte";
 
   export let id;
 
@@ -25,7 +21,6 @@
   let phoneNumber;
   let sector;
   let address;
-  let rating;
   let educations = [];
   let experiences = [];
 
@@ -84,6 +79,8 @@
 
 <main>
   <h1>Update Profile {id}</h1>
+  <UpdateEducation profileId={id} {educations} />
+  <UpdateExperience profileId={id} {experiences} />
 </main>
 
 <style>
