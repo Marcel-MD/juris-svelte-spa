@@ -26,6 +26,10 @@ export async function getProfiles(
   );
 }
 
+export async function createEmptyProfile() {
+  return await axios.post(url + "empty", {}, { headers: authHeader() });
+}
+
 export async function getProfileById(id: number | string) {
   return await axios.get(url + id);
 }

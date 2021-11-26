@@ -1,11 +1,15 @@
 <script>
-  import { getProfileById } from "../../services/profile.service";
+  import {
+    createEmptyProfile,
+    getProfileById,
+  } from "../../services/profile.service";
   import Review from "./Review.svelte";
   import CreateReview from "./CreateReview.svelte";
   import CreateAppointment from "../appointment/CreateAppointment.svelte";
   import ProfileInfo from "./ProfileInfo.svelte";
   import { getCurrentUser } from "../../services/auth.service";
   import { catchError } from "../../services/error.service";
+  import { navigate } from "svelte-routing";
 
   export let id;
   let user = getCurrentUser();
@@ -21,6 +25,16 @@
     },
     (error) => {
       errorMessage = catchError(error);
+      if (errorMessage == "Not Found" && user && user.id == id) {
+        createEmptyProfile().then(
+          (response) => {
+            navigate("/update-profile/" + id);
+          },
+          (error) => {
+            errorMessage = catchError(error);
+          }
+        );
+      }
     }
   );
 </script>

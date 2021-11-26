@@ -63,8 +63,8 @@
       profilePicture = p.profilePicture;
       type = p.type;
       description = p.description;
-      price = p.price;
-      phoneNumber = p.phoneNumber;
+      price = p.price.toString();
+      phoneNumber = p.phoneNumber.toString();
       sector = p.sector;
       address = p.address;
       educations = p.educations;
@@ -204,9 +204,7 @@
         />
       </div>
       <div class="col-12">
-        <label for="validationDefault04" class="form-label"
-          >Problem description</label
-        >
+        <label for="validationDefault04" class="form-label">Description</label>
         <textarea
           class="form-control"
           id="validationDefault04"
