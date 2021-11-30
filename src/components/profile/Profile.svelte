@@ -47,7 +47,7 @@
   {:else}
     <div class="top-container">
       <ProfileInfo {...profile} />
-      <CreateAppointment {id} />
+      <CreateAppointment userId={id} />
       <h1>Reviews</h1>
       <div class="container">
         {#each reviews as review}
