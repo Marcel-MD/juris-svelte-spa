@@ -73,7 +73,7 @@
                 to="login"
                 class="nav-link"
                 on:click={() => {
-                  logout;
+                  logout();
                   user = null;
                 }}>Logout</Link
               >

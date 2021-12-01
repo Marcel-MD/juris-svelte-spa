@@ -4,11 +4,11 @@
 
   let password = "";
   let email = "";
-  let errorMessages = [];
+  let errorMessages = "";
   let loading = "";
 
   function signin() {
-    errorMessages = [];
+    errorMessages = "";
     loading = "Loading...";
     login(email, password).then(
       (response) => {
@@ -19,6 +19,11 @@
       },
       (error) => {
         errorMessages = catchError(error);
+
+        if (errorMessages === "Unauthorized" || errorMessages === "Not Found") {
+          errorMessages = "Incorrect email or password!";
+        }
+
         loading = "";
       }
     );
@@ -60,13 +65,7 @@
       >Login</button
     >
     <div style="margin-top: 1em;" />
-    {#if Array.isArray(errorMessages)}
-      {#each errorMessages as message}
-        <div class="alert alert-danger" role="alert">
-          {message}
-        </div>
-      {/each}
-    {:else if errorMessages}
+    {#if errorMessages}
       <div class="alert alert-danger" role="alert">
         {errorMessages}
       </div>
