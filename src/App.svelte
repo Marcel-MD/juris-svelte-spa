@@ -52,21 +52,22 @@
             <Link to="search" class="nav-link">Search</Link>
           </li>
           {#if user}
-            <li class="nav-item">
-              <Link to="profile/{user.id}" class="nav-link">Profile</Link>
-            </li>
-            <li class="nav-item">
-              <Link to="appointment-dashboard" class="nav-link">
-                Appointments
-              </Link>
-            </li>
-            {#if user.roles.includes("admin")}
+            {#if !user.roles.includes("admin")}
+              <li class="nav-item">
+                <Link to="profile/{user.id}" class="nav-link">Profile</Link>
+              </li>
+              <li class="nav-item">
+                <Link to="appointment-dashboard" class="nav-link">
+                  Appointments
+                </Link>
+              </li>
+            {:else}
               <li class="nav-item">
                 <Link to="admin-dashboard" class="nav-link">Dashboard</Link>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <Link to="analytics" class="nav-link">Analytics</Link>
-              </li>
+              </li> -->
             {/if}
             <li class="nav-item">
               <Link

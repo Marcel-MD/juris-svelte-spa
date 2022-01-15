@@ -21,8 +21,7 @@
     <img
       src={profilePicture || "/sample-profile.png"}
       alt="profile"
-      width="240"
-      height="240"
+      style="width: 240px; height: 240px; object-fit: cover;"
     />
     <div class="card-body">
       <div class="row">
