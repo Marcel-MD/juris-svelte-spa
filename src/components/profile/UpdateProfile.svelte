@@ -106,7 +106,8 @@
       <img
         src={profilePicture || "../sample-profile.png"}
         alt="profile"
-        style="width: 240px; height: 240px; object-fit: cover;"
+        width="240"
+        height="240"
       />
       <br />
       <div class="col-12">
