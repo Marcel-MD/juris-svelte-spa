@@ -22,7 +22,7 @@
   }
 </script>
 
-<Router>
+<Router basepath={"/juris-svelte-spa"}>
   <nav
     class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top scrolling-navbar"
   >
