@@ -19,7 +19,7 @@
 <main>
   <div class="card card-container" on:click={goToProfile}>
     <img
-      src={profilePicture || "/sample-profile.png"}
+      src={profilePicture || "../sample-profile.png"}
       alt="profile"
       style="width: 240px; height: 240px; object-fit: cover;"
     />

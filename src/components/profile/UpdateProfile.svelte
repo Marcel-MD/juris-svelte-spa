@@ -104,7 +104,7 @@
   <form class="row info-form" on:submit|preventDefault={handleUpdate}>
     <div class="col-md-3">
       <img
-        src={profilePicture || "/sample-profile.png"}
+        src={profilePicture || "../sample-profile.png"}
         alt="profile"
         style="width: 240px; height: 240px; object-fit: cover;"
       />

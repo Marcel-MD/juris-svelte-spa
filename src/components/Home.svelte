@@ -43,7 +43,7 @@
   <div class="search-section">
     <center
       ><img
-        src="/logo-pbl2.1.w.png"
+        src="../logo-pbl2.1.w.png"
         alt="logo"
         width="240"
         height="240"
@@ -79,20 +79,20 @@
   <div class="about-section">
     <h2 class="about-title">About Us</h2>
     <p class="about-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+      Who are we? A small team which a big dream, to simplify the connection
+      between lawyers and their clients. The solution we came up to, is the web
+      platform you see. Juris helps lawyers sell their services and find new
+      clients. For clients, it provides means of choosing the right attorney for
+      their need. We are very fascinated about bringing out to society a new
+      product that will connect clients with attorneys in our local area and
+      improve the quality of services.
     </p>
   </div>
 </main>
 
 <style>
   .search-section {
-    background-image: url("/grunge-cracked-wall.jpg");
+    background-image: url("../grunge-cracked-wall.jpg");
     height: 600px;
     background-position: center;
     background-repeat: no-repeat;

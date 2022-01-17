@@ -34,7 +34,7 @@
   <form>
     <img
       class="mb-4"
-      src="/juris-md.png"
+      src="../juris-md.png"
       alt=""
       width="200"
       height="200"

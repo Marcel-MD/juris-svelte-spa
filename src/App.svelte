@@ -29,7 +29,7 @@
     <div class="container">
       <Link to="/"
         ><div class="navbar-brand">
-          <img src="/logo-pbl2.2.w.png" width="47" height="47" alt="logo" />
+          <img src="../logo-pbl2.2.w.png" width="47" height="47" alt="logo" />
         </div></Link
       >
       <button
