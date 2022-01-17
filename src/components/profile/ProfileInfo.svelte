@@ -70,10 +70,9 @@
   <div class="profile-info row">
     <div class="col-md">
       <img
-        src={profilePicture || "../sample-profile.png"}
+        src={profilePicture || "/sample-profile.png"}
         alt="profile"
-        width="240"
-        height="240"
+        style="width: 240px; height: 240px; object-fit: cover;"
       />
       {#if verified}
         <div class="alert alert-success" role="alert">Verified Profile!</div>
@@ -112,7 +111,7 @@
       <p>{description}</p>
       <h5>{sector}, {address}</h5>
       <h2>Price: {price} lei/h</h2>
-      <h2>Rating: {rating}</h2>
+      <h2>Rating: {rating || "-"}</h2>
     </div>
     <div class="col-md">
       <h3>Experience</h3>
